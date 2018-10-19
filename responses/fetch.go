@@ -1,7 +1,7 @@
 package responses
 
 import (
-	"github.com/emersion/go-imap"
+	"github.com/anuj-verma/go-imap"
 )
 
 const fetchName = "FETCH"

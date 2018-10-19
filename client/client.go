@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/emersion/go-imap"
-	"github.com/emersion/go-imap/responses"
+	"github.com/anuj-verma/go-imap"
+	"github.com/anuj-verma/go-imap/responses"
 	"golang.org/x/net/proxy"
 )
 

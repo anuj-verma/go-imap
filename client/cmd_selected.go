@@ -3,9 +3,9 @@ package client
 import (
 	"errors"
 
-	"github.com/emersion/go-imap"
-	"github.com/emersion/go-imap/commands"
-	"github.com/emersion/go-imap/responses"
+	"github.com/anuj-verma/go-imap"
+	"github.com/anuj-verma/go-imap/commands"
+	"github.com/anuj-verma/go-imap/responses"
 )
 
 // ErrNoMailboxSelected is returned if a command that requires a mailbox to be

@@ -13,6 +13,7 @@ import (
 
 	"github.com/emersion/go-imap"
 	"github.com/emersion/go-imap/responses"
+	"golang.org/x/net/proxy"
 )
 
 // errClosed is used when a connection is closed while waiting for a command
@@ -584,6 +585,24 @@ func DialWithDialerTLS(dialer *net.Dialer, addr string,
 			return
 		}
 	}
+
+	c, err = New(conn)
+	c.isTLS = true
+	return
+}
+
+// DialWithDialerTLS connects to an IMAP server using an encrypted connection
+// using proxy.Dialer.
+//
+func DialWithDialerTLSWithProxy(dialer proxy.Dialer, addr string, tlsConfig *tls.Config) (c *Client, err error) {
+
+	conn, err := dialer.Dial("tcp", addr)
+	if err != nil {
+		return
+	}
+
+	// upgrade to TLS
+	conn = tls.Client(conn, tlsConfig)
 
 	c, err = New(conn)
 	c.isTLS = true
